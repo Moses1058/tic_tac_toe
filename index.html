@@ -15,18 +15,19 @@
     <div class="choosePlayer">
         <h4>PICK PLAYER 1’S MARK</h4>
         <div class="x_y">
-            <button class="x choose" type="button">
+            <button type="button" class="x choose" type="button" onclick="choose(0)">
                 <div class="x-rect"></div>
                 <div class="x-rect"></div>
             </button>
-            <button class="o choose" type="button">
+            <button type="button" class="o choose" type="button" onclick="choose(1)" autofocus>
                 <div class="o_circle"></div>
             </button>
         </div>
         <p class="rememberText">REMEMBER : X GOES FIRST</p>
     </div>
-    <button class="vs_cpu vs" type="button">NEW GAME (VS CPU)</button>
-    <button class="vs_player vs" type="button">NEW GAME (VS PLAYER)</button>
+    <button class="vs_cpu vs" type="button" onclick="gameStart()">NEW GAME (VS CPU)</button>
+    <button class="vs_player vs" type="button" onclick="gameStart()" autofocus>NEW GAME (VS PLAYER)</button>
+    <script src="script.js"></script>
 </body>
 
 </html>

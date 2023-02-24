@@ -61,7 +61,9 @@ body {
 }
 
 /*-----  X and O shapes ----- */
-.x-rect {
+.x-rect_turn {
+    position: absolute;
+    background-color: #A8BFC9;
     width: 4.5px;
     Height: 19.6px;
     top: 8px;
@@ -69,7 +71,17 @@ body {
     border-radius: 1px;
 }
 
-.o_circle {
+.x-rect_turn:nth-of-type(1) {
+    transform: rotate(45deg);
+}
+
+.x-rect_turn:nth-of-type(2) {
+    transform: rotate(135deg);
+}
+
+.o_circle_turn {
+    border-radius: 50%;
+    background-color: transparent;
     width: 16px;
     height: 16px;
     border: 5.925px solid #A8BFC9;
@@ -153,7 +165,7 @@ body {
     }
 
     /*-----  X and O shapes ----- */
-    .x-rect {
+    .x-rect_turn {
         Width: 6.55px;
         Height: 24.63px;
         top: 11px;
@@ -161,7 +173,7 @@ body {
         border-radius: 3px;
     }
 
-    .o_circle {
+    .o_circle_turn {
         width: 20px;
         height: 20px;
         top: 13.5px;
@@ -230,4 +242,26 @@ body {
         margin-top: 20px;
     }
 
+}
+
+
+
+/*  INDEPENDET STYLES FOR JS  */
+
+.x_move_hover {
+    background: #1F3641 url(./assets/icon-x-outline.svg) no-repeat center/64px 64px;
+
+}
+
+.x_move {
+    background: #1F3641 url(./assets/icon-x.svg) no-repeat center/64px 64px;
+
+}
+
+.o_move_hover {
+    background: #1F3641 url(./assets/icon-o-outline.svg) no-repeat center/64px 64px;
+}
+
+.o_move {
+    background: #1F3641 url(./assets/icon-o.svg) no-repeat center/64px 64px;
 }

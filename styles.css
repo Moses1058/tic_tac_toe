@@ -73,7 +73,7 @@ h4 {
 .o_circle {
     width: 31.74px;
     height: 31.74px;
-    border: 9.405px solid #1A2A33;
+    border: 9.405px solid #A8BFC9;
     border-radius: 50%;
     background-color: transparent;
 }
@@ -90,7 +90,16 @@ h4 {
 }
 
 .o {
+    background-color: transparent;
+}
+
+.o:focus {
     background-color: #A8BFC9;
+    outline: none;
+}
+
+.o:focus .o_circle {
+    border-color: #1A2A33;
 }
 
 .x {
