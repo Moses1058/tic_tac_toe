@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500;700&display=swap');
 
+
+/* GENERAL STYLES */
+button {
+    border: none;
+}
+
+/* --------------------------------
+---------- CONSTANT STYLES -----------
+------------------------------------- */
 body {
     font-family: 'Outfit', sans-serif;
     font-style: normal;
@@ -11,15 +20,10 @@ body {
     height: 100vh;
 }
 
-button {
-    border: none;
-}
-
 h4 {
     font-weight: 700;
     font-size: 16px;
     line-height: 20px;
-    text-align: center;
     letter-spacing: 1px;
     color: #A8BFC9;
 }
@@ -29,16 +33,15 @@ h4 {
     box-shadow: inset 0px -8px 0px #10212A;
     border-radius: 15px;
     padding: 24px 24px 30px 24px;
+    text-align: center;
 }
 
 .rememberText {
     font-weight: 500;
     font-size: 14px;
     line-height: 18px;
-    text-align: center;
     letter-spacing: 0.875px;
     color: #A8BFC9;
-    mix-blend-mode: normal;
     opacity: 0.5;
 }
 
@@ -49,13 +52,13 @@ h4 {
     display: flex;
 }
 
+/*-----  X and O shapes ----- */
 .x-rect {
     position: absolute;
     width: 9.8px;
     Height: 36.84px;
     background-color: #A8BFC9;
     border-radius: 3px;
-
 }
 
 .x-rect:nth-of-type(1) {
@@ -74,14 +77,15 @@ h4 {
     background-color: transparent;
 }
 
+/* ---------------------------------------------- */
+
 .choose {
-    width: 131px;
+    width: 50%;
     height: 54px;
     border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
 .o {
@@ -92,26 +96,18 @@ h4 {
     background-color: transparent;
 }
 
-
+/*  START BUTTONS */
 .vs {
     font-weight: 700;
-    font-size: 16px;
-    line-height: 20px;
-    text-align: center;
-    letter-spacing: 1px;
     color: #1A2A33;
     border-radius: 15px;
-    width: 327px;
-    height: 56px;
     display: flex;
     justify-content: center;
-    padding-top: 14px;
 }
 
 .vs_cpu {
     background: #F2B137;
     box-shadow: inset 0px -8px 0px #CC8B13;
-
 }
 
 .vs_player {
@@ -119,23 +115,35 @@ h4 {
     box-shadow: inset 0px -8px 0px #118C87;
 }
 
+/* --------------------------------
+/////////////////////////////////////
+---------- CHANGEBLE STYLES -----------
+//////////////////////////////////////
+------------------------------------- */
+body {
+    padding: 119px 24px;
+}
 
 img[alt=logo] {
     margin-bottom: 32px;
-}
-
-.vs_cpu {
-    margin: 32px 0 16px 0;
-}
-
-
-/*  CHANGEBLE STYLES */
-body {
-    padding: 119px 24px;
 }
 
 .x_y {
     width: 279px;
     height: 72px;
     margin: 24px 0 17px 0;
+}
+
+.vs {
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: 1px;
+    width: 327px;
+    height: 56px;
+    padding-top: 14px;
+}
+
+.vs_cpu {
+    margin: 32px 0 16px 0;
 }
