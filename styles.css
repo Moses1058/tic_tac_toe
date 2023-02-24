@@ -137,7 +137,6 @@ img[alt=logo] {
 .vs {
     font-size: 16px;
     line-height: 20px;
-    text-align: center;
     letter-spacing: 1px;
     width: 327px;
     height: 56px;
@@ -146,4 +145,40 @@ img[alt=logo] {
 
 .vs_cpu {
     margin: 32px 0 16px 0;
+}
+
+/* ----------------------------------------
+--------- FOR TABLET RESOLUTION -----------
+------------------------------------------ */
+@media (min-width: 768px) {
+    body {
+        padding: 277px 154px 276px 154px;
+    }
+
+    img[alt=logo] {
+        margin-bottom: 40px;
+    }
+
+    .x_y {
+        width: 412px;
+    }
+
+    .vs {
+        font-size: 20px;
+        line-height: 25px;
+        letter-spacing: 1.25px;
+        width: 460px;
+        min-height: 67px;
+        padding-top: 17px;
+    }
+
+    .vs_cpu {
+        margin: 40px 0 20px 0;
+    }
+}
+
+@media (min-width: 1440px) {
+    body {
+        padding: 215px 490px 214px 490px;
+    }
 }
