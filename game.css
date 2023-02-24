@@ -2,10 +2,6 @@
 ---------- CONSTANT STYLES -----------
 ------------------------------------- */
 
-body {
-    padding: 24px 23px 127px 24px;
-}
-
 img[alt=logo] {
     margin-bottom: 0;
 }
@@ -51,6 +47,9 @@ img[alt=logo] {
 ---------- CHANGEBLE STYLES -----------
 //////////////////////////////////////
 ------------------------------------- */
+body {
+    padding: 24px 23px 127px 24px;
+}
 
 /* header */
 .turn {
@@ -140,4 +139,95 @@ img[alt=logo] {
 /*  RESPONSIVE  */
 
 /* -- For Tablet --- */
-@media (min-width: 768px) {}
+@media (min-width: 768px) {
+    body {
+        padding: 201px 154px 200px 154px;
+    }
+
+    .turn {
+        width: 140px;
+        height: 52px;
+        margin: 0 108px 0 85px;
+        padding: 13px 30px 19px 30px;
+        border-radius: 10px;
+    }
+
+    /*-----  X and O shapes ----- */
+    .x-rect {
+        Width: 6.55px;
+        Height: 24.63px;
+        top: 11px;
+        left: 37px;
+        border-radius: 3px;
+    }
+
+    .o_circle {
+        width: 20px;
+        height: 20px;
+        top: 13.5px;
+        left: 30px;
+        display: none;
+    }
+
+    /* ----------------------------- */
+    .turn p {
+        font-size: 16px;
+        line-height: 20px;
+        letter-spacing: 1px;
+        margin-left: 33px;
+    }
+
+    .restart {
+        width: 52px;
+        height: 52px;
+        padding: 16px;
+        border-radius: 10px;
+    }
+
+    .restart img {
+        width: 20px;
+        height: 20px;
+    }
+
+    /* board styles */
+    .board {
+        margin-top: 19px;
+    }
+
+    .piece {
+        width: 140px;
+        height: 140px;
+        border-radius: 15px;
+    }
+
+    .score {
+        width: 140px;
+        height: 72px;
+        border-radius: 15px;
+    }
+
+    .score p {
+        font-size: 14px;
+        line-height: 18px;
+        letter-spacing: 0.875px;
+    }
+
+    .score .counter {
+        font-size: 24px;
+        line-height: 30px;
+        letter-spacing: 1.5px;
+    }
+}
+
+/* For Desktops */
+@media (min-width: 1440px) {
+    body {
+        padding: 139px 490px 138px 490px;
+    }
+
+    /* board styles */
+    .board {
+        margin-top: 20px;
+    }
+
+}
