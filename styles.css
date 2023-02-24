@@ -4,6 +4,7 @@
 /* GENERAL STYLES */
 button {
     border: none;
+    cursor: pointer;
 }
 
 /* --------------------------------
@@ -147,9 +148,7 @@ img[alt=logo] {
     margin: 32px 0 16px 0;
 }
 
-/* ----------------------------------------
---------- FOR TABLET RESOLUTION -----------
------------------------------------------- */
+/*--------- FOR TABLET RESOLUTION ----------- */
 @media (min-width: 768px) {
     body {
         padding: 277px 154px 276px 154px;
@@ -177,8 +176,23 @@ img[alt=logo] {
     }
 }
 
+/*--------- FOR DESKTOP RESOLUTION ----------- */
 @media (min-width: 1440px) {
     body {
         padding: 215px 490px 214px 490px;
     }
+}
+
+/* ------ HOVER EFFECTS ---------- */
+
+.choose:hover {
+    background: rgba(168, 191, 201, 0.05);
+}
+
+.vs_cpu:hover {
+    background-color: #FFC860;
+}
+
+.vs_player:hover {
+    background-color: #65E9E4;
 }
