@@ -27,20 +27,6 @@ const choose = function (x) {
 let move = 0;
 const pieces = document.getElementsByClassName('piece');
 
-// const handleMouseOut = function (x) {
-//     if (move % 2 == 0) {
-//         x.classList.add("x_move_hover");
-//     } else {
-//         x.classList.add("o_move_hover");
-//     }
-// }
-// const handleMouseOver = function (x) {
-//     if (move % 2 == 0) {
-//         x.classList.remove("x_move_hover");
-//     } else {
-//         x.classList.remove("o_move_hover");
-//     }
-// }
 
 for (let piece of pieces) {
     piece.addEventListener("mouseover", event => {
@@ -50,24 +36,13 @@ for (let piece of pieces) {
     piece.addEventListener("mouseout", event => {
         handleMouseOut(event.target);
     });
-    // piece.addEventListener("click", event => {
-    //     const clickedButton = event.target;
-    //     if (move % 2 == 0) {
-    //         piece.classList.add("x_move");
-    //     } else {
-    //         piece.classList.add("o_move");
-    //     }
-    //     move++;
-    //     clickedButton.removeEventListener("mouseover", handleMouseOver);
-    //     clickedButton.removeEventListener("mouseout", handleMouseOut);
-    // });
 }
-
 
 let scores = 0;
 let x_moves = [];
 let o_moves = [];
-const forScore = function (button, a, b) {
+
+const forScore = function (button, row, column) {
     const pieceId = Number(button.id);
     let lala;
     if (move % 2 == 0) {
@@ -84,116 +59,53 @@ const forScore = function (button, a, b) {
         lala = 1;
     }
     move++;
-    // button.removeEventListener("mouseover", handleMouseOver);
-    // button.removeEventListener("mouseout", handleMouseOut);
+
     button.disabled = true;
-    // console.log(move);
-    // console.log(x_moves, o_moves);
-
-    // const books = [
-    //     { title: 'To Kill a Mockingbird', author: 'Harper Lee' },
-    //     { title: 'The Great Gatsby', author: 'F. Scott Fitzgerald' },
-    //     { title: '1984', author: 'George Orwell' }
-    // ];
-
-    // const book = books.find(book => book.title === 'The Great Gatsby');
-    // console.log(book); // { title: 'The Great Gatsby', author: 'F. Scott Fitzgerald' }
-    // if (checkWin(pieceId, a, b, (lala == 0) ? x_moves : o_moves)) {
-    //     console.log("HAHAHAAA MOVIGEEE")
-    // }
-    if (checkWin(pieceId, a, b, (lala == 0) ? x_moves : o_moves)) {
+    if (checkWin(pieceId, row, column, (lala == 0) ? x_moves : o_moves)) {
         console.log("AI AMAN MOIGO");
     };
-    // console.log(x_moves);
 }
 
 const checkWin = function (m, a, b, which) {
-    // check vertical 
-    // console.log(m, a, b, which);
-    if (checkVer(m, a, b, which)) return true;
-    if (checkHor(m, a, b, which)) return true;
+    if (check(a, (+3), (-3), m, which)) return true;
+    if (check(b, (+1), (-1), m, which)) return true;
     if (checkDiagonal(m, a, b, which)) return true;
     return false;
-    // if (a != 0) {
-    //     ragacMove = which.find(x => x.id == (m - 3));
-    //     console.log(ragacMove);
-    // }
-    // if (a != 2) {
-    //     ragacMove = which.find(x => x.id == (m + 3));
-    //     console.log(ragacMove);
-    // }
-
 }
-
-const checkVer = function (m, a, b, which) {
+const checkComponent = function (y, f, which, mult, m, w, t) {
+    for (let i = y, z = 1; f ? i > 0 : i < 2; f ? i-- : i++, z++) {
+        m = which.find(x => x.id == (t + mult * z));
+        if (m) w.push(m);
+    }
+}
+const check = function (dir, i, d, m, which) {
     let winMove = [];
     let ragacMove;
-    for (let l = a, z = 1; l > 0; l--, z++) {
-        ragacMove = which.find(x => x.id == (m - 3 * z));
-        // console.log(ragacMove);
-        if (ragacMove) winMove.push(ragacMove);
-    }
-    for (let g = a, v = 1; g < 2; g++, v++) {
-        ragacMove = which.find(x => x.id == (m + 3 * v));
-        // console.log(ragacMove);
-        if (ragacMove) winMove.push(ragacMove);
-    }
+    checkComponent(dir, true, which, d, ragacMove, winMove, m);
+    checkComponent(dir, false, which, i, ragacMove, winMove, m);
     if (winMove.length == 2) {
         return true;
     }
     return false;
 }
 
-const checkHor = function (m, a, b, which) {
-    let winMove = [];
-    let ragacMove;
-    for (let l = b, z = 1; l > 0; l--, z++) {
-        ragacMove = which.find(x => x.id == (m - 1 * z));
+const innerFunction = function (x, which, b, a, c, v) {
+    if (b == c && a == v) {
+        let ragacMove;
+        ragacMove = which.find(y => y.id == x);
         // console.log(ragacMove);
-        if (ragacMove) winMove.push(ragacMove);
+        if (ragacMove) return true;
     }
-    for (let g = b, v = 1; g < 2; g++, v++) {
-        ragacMove = which.find(x => x.id == (m + 1 * v));
-        // console.log(ragacMove);
-        if (ragacMove) winMove.push(ragacMove);
-    }
-    if (winMove.length == 2) {
-        return true;
-    }
-    return false;
 }
 
 const checkDiagonal = function (m, a, b, which) {
-    let winMove = [];
-    let ragacMove;
-
     if (which.find(x => x.id == (4))) {
         // console.log("ipova shuaxazi");
         if (m != 4) {
-            if (b == 0) {
-                if (a == 0) {
-                    ragacMove = which.find(x => x.id == 8);
-                    // console.log(ragacMove);
-                    if (ragacMove) return true;
-                }
-                if (a == 2) {
-                    ragacMove = which.find(x => x.id == 2);
-                    // console.log(ragacMove);
-                    if (ragacMove) return true;
-                }
-            }
-            if (b == 2) {
-                if (a == 0) {
-                    ragacMove = which.find(x => x.id == 6);
-                    // console.log(ragacMove);
-                    if (ragacMove) return true;
-                }
-                if (a == 2) {
-                    ragacMove = which.find(x => x.id == 0);
-                    // console.log(ragacMove);
-                    if (ragacMove) return true;
-                }
-            }
+            if (innerFunction(8, which, b, a, 0, 0)) return true;
+            if (innerFunction(2, which, b, a, 0, 2)) return true;
+            if (innerFunction(6, which, b, a, 2, 0)) return true;
+            if (innerFunction(0, which, b, a, 2, 2)) return true;
         } else {
             let esIyos1 = (which.find(x => x.id == 0) && which.find(x => x.id == 8));
             let esIyos2 = (which.find(x => x.id == 2) && which.find(x => x.id == 6));
@@ -202,10 +114,6 @@ const checkDiagonal = function (m, a, b, which) {
     }
     return false;
 }
-
-
-
-
 
 const handleMouseOver = x => {
     if (move % 2 == 0) {
@@ -222,3 +130,60 @@ const handleMouseOut = x => {
     }
 }
 
+const x_form_winner = document.getElementsByClassName('x-rect_winner');
+const o_form_winner = document.querySelector('.o_circle_winner');
+// RESTART BUTTON ONCLICK 
+const restartArrow = function () {
+    const main = document.querySelector('main');
+    main.classList.add('main_after');
+    const winnerBanner = document.querySelector('.winner');
+    const announce = document.getElementById('announce');
+    announce.style.display = 'none';
+    winnerBanner.style.display = 'flex';
+    for (i of x_form_winner) {
+        i.style.display = 'none';
+    }
+    o_form_winner.style.display = 'none';
+    const bannerHeader = document.getElementById('takesRound');
+    bannerHeader.textContent = 'RESTART GAME?';
+    bannerHeader.style.color = '#A8BFC9';
+    bannerHeader.style.marginLeft = '0px';
+
+    changeRestartButtons();
+
+}
+const changeBannerToDefault = function () {
+    const winnerBanner = document.querySelector('.winner');
+    winnerBanner.style.display = 'none';
+    const main = document.querySelector('main');
+    main.classList.remove('main_after');
+    for (i of x_form_winner) {
+        // i.style.display = 'none';
+        i.style.removeProperty('display');
+    }
+    o_form_winner.style.removeProperty('display');
+    const announce = document.getElementById('announce');
+    announce.style.removeProperty('display');
+    const bannerHeader = document.getElementById('takesRound');
+    bannerHeader.textContent = 'TAKES THE ROUND';
+    bannerHeader.style.removeProperty('color');
+    bannerHeader.style.marginLeft = '';
+}
+const changeRestartButtons = function () {
+    const grayButton = document.getElementById('quit');
+    const yellowButton = document.getElementById('next_round');
+    grayButton.textContent = 'NO, CANCEL';
+    grayButton.style.width = '139px';
+
+    yellowButton.textContent = 'YES, RESTART';
+    yellowButton.style.width = '151px';
+}
+const changeRestartButtonsBack = function () {
+    const grayButton = document.getElementById('quit');
+    const yellowButton = document.getElementById('next_round');
+    grayButton.textContent = 'QUIT';
+    yellowButton.textContent = 'NEXT ROUND';
+    grayButton.style.removeProperty("width");
+    yellowButton.style.removeProperty("width");
+    changeBannerToDefault();
+}

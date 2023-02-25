@@ -1,6 +1,19 @@
 /* --------------------------------
 ---------- CONSTANT STYLES -----------
 ------------------------------------- */
+body {
+    padding: 0;
+}
+
+main {
+    background-color: #1A2A33;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
 
 img[alt=logo] {
     margin-bottom: 0;
@@ -42,12 +55,107 @@ img[alt=logo] {
     background-color: #F2B137;
 }
 
+/*  WINNER STYLES */
+.winner {
+    background-color: #1F3641;
+    text-align: center;
+    width: 100%;
+    height: 228px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    display: none;
+}
+
+.innerWinner {
+    width: 280px;
+    position: relative;
+}
+
+.x-rect_winner {
+    position: absolute;
+    background-color: #31C3BD;
+    width: 8px;
+    Height: 32px;
+    top: 33px;
+    left: 11px;
+    border-radius: 3px;
+}
+
+.x-rect_winner:nth-of-type(1) {
+    transform: rotate(45deg);
+}
+
+.x-rect_winner:nth-of-type(2) {
+    transform: rotate(135deg);
+}
+
+.o_circle_winner {
+    border-radius: 50%;
+    background-color: transparent;
+    width: 30px;
+    height: 30px;
+    border: 8.89px solid #F2B137;
+    position: absolute;
+    top: 34px;
+    left: 0;
+}
+
+#announce {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0.875px;
+    color: #A8BFC9;
+}
+
+#takesRound {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 30px;
+    letter-spacing: 1.5px;
+    color: #F2B137;
+    margin: 16px 0 24px 37px;
+}
+
+.winnerButton {
+    height: 52px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 1px;
+    color: #1A2A33;
+}
+
+#quit {
+    width: 76px;
+    background: #A8BFC9;
+    box-shadow: inset 0px -4px 0px #6B8997;
+    margin-right: 16px;
+}
+
+#next_round {
+    width: 146px;
+    background: #F2B137;
+    box-shadow: inset 0px -4px 0px #CC8B13;
+}
+
+.main_after {
+    background: #000000;
+    mix-blend-mode: normal;
+    opacity: 0.5;
+}
+
+/* ----------------------------------- */
+
 /* --------------------------------
 /////////////////////////////////////
 ---------- CHANGEBLE STYLES -----------
 //////////////////////////////////////
 ------------------------------------- */
-body {
+main {
     padding: 24px 23px 127px 24px;
 }
 
@@ -152,7 +260,7 @@ body {
 
 /* -- For Tablet --- */
 @media (min-width: 768px) {
-    body {
+    main {
         padding: 201px 154px 200px 154px;
     }
 
@@ -229,21 +337,59 @@ body {
         line-height: 30px;
         letter-spacing: 1.5px;
     }
+
+    /*  WINNER STYLES */
+    .winner {
+        height: 266px;
+    }
+
+    .innerWinner {
+        width: 491px;
+    }
+
+    .x-rect_winner {
+        width: 19.59px;
+        Height: 73.67px;
+        top: 31.5px;
+        left: 22px;
+        border-radius: 3px;
+    }
+
+    .o_circle_winner {
+        width: 64px;
+        height: 64px;
+        border: 18.96px solid #F2B137;
+        top: 36px;
+    }
+
+
+    #announce {
+        font-size: 16px;
+        line-height: 20px;
+        letter-spacing: 1px;
+    }
+
+    #takesRound {
+        font-size: 40px;
+        line-height: 50px;
+        letter-spacing: 2.5px;
+        margin: 23px 0 31px 87px;
+    }
+
+    /* ----------------------------------- */
+
 }
 
 /* For Desktops */
 @media (min-width: 1440px) {
-    body {
+    main {
         padding: 139px 490px 138px 490px;
     }
-
-    /* board styles */
-    .board {
-        margin-top: 20px;
-    }
-
 }
 
+
+
+/* ----------------------------------- */
 
 
 /*  INDEPENDET STYLES FOR JS  */
