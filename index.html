@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 
-<body>
+<body id="index">
     <img src="./assets/logo.svg" alt="logo">
     <div class="choosePlayer">
         <h4>PICK PLAYER 1’S MARK</h4>
@@ -25,8 +25,8 @@
         </div>
         <p class="rememberText">REMEMBER : X GOES FIRST</p>
     </div>
-    <button class="vs_cpu vs" type="button" onclick="gameStart()">NEW GAME (VS CPU)</button>
-    <button class="vs_player vs" type="button" onclick="gameStart()" autofocus>NEW GAME (VS PLAYER)</button>
+    <button id="0" class="vs_cpu vs" type="button" onclick="gameStart(0)">NEW GAME (VS CPU)</button>
+    <button id="1" class="vs_player vs" type="button" onclick="gameStart(1)" autofocus>NEW GAME (VS PLAYER)</button>
     <script src="script.js"></script>
 </body>
 

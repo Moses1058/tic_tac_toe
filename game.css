@@ -81,6 +81,7 @@ img[alt=logo] {
     top: 33px;
     left: 11px;
     border-radius: 3px;
+    display: none;
 }
 
 .x-rect_winner:nth-of-type(1) {
@@ -100,6 +101,7 @@ img[alt=logo] {
     position: absolute;
     top: 34px;
     left: 0;
+    display: none;
 }
 
 #announce {
@@ -410,4 +412,21 @@ main {
 
 .o_move {
     background: #1F3641 url(./assets/icon-o.svg) no-repeat center/64px 64px;
+}
+
+/* ------ HOVER EFFECTS ---------- */
+
+.restart:hover {
+    background: #DBE8ED;
+    box-shadow: inset 0px -4px 0px #6B8997;
+}
+
+#quit:hover {
+    background: #DBE8ED;
+    box-shadow: inset 0px -4px 0px #6B8997;
+}
+
+#next_round:hover {
+    background: #FFC860;
+    box-shadow: inset 0px -4px 0px #CC8B13;
 }
